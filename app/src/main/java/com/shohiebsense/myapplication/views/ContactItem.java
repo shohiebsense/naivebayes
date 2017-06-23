@@ -1,4 +1,4 @@
-package com.shohiebsense.myapplication;
+package com.shohiebsense.myapplication.views;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.shohiebsense.myapplication.R;
 import com.shohiebsense.myapplication.models.Contact;
 
 import butterknife.BindView;
@@ -39,8 +40,6 @@ public class ContactItem extends RecyclerView.ViewHolder {
         nameTextView.setText(contact.getName());
         emailTextView.setText(contact.getEmail());
         phoneTextView.setText(contact.getPhone());
-
     }
-
 
 }

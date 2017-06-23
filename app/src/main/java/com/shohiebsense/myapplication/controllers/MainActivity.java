@@ -1,4 +1,4 @@
-package com.shohiebsense.myapplication;
+package com.shohiebsense.myapplication.controllers;
 
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,14 +7,14 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Button;
 
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter;
-import com.mikepenz.fastadapter.items.AbstractItem;
+import com.shohiebsense.myapplication.R;
+import com.shohiebsense.myapplication.controllers.ContactControllers;
 import com.shohiebsense.myapplication.models.Contact;
+import com.shohiebsense.myapplication.views.ViewItem;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
     void init(){
         fastItemAdapter.withSelectable(true);
-        ContactCommands contactCommands = new ContactCommands().init();
-        contactCommands.addContacts();
+        ContactControllers contactControllers = new ContactControllers().init();
+        contactControllers.addContacts();
         initRecyclerView();
         contactRecyclerView.setAdapter(fastItemAdapter);
-        createItems(contactCommands.getAllContacts());
+        createItems(contactControllers.getAllContacts());
     }
 
     public void initRecyclerView(){

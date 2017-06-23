@@ -1,16 +1,11 @@
-package com.shohiebsense.myapplication;
+package com.shohiebsense.myapplication.views;
 
-import android.content.Context;
-import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.mikepenz.fastadapter.items.AbstractItem;
+import com.shohiebsense.myapplication.R;
 import com.shohiebsense.myapplication.models.Contact;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

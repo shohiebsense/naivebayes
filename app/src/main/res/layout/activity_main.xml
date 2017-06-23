@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/cardview_default_radius"
-    tools:context="com.shohiebsense.myapplication.MainActivity">
+    tools:context="com.shohiebsense.myapplication.controllers.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_contacts"

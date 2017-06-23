@@ -1,4 +1,4 @@
-package com.shohiebsense.myapplication;
+package com.shohiebsense.myapplication.controllers;
 
 import com.shohiebsense.myapplication.models.Contact;
 
@@ -11,11 +11,11 @@ import io.realm.RealmResults;
  * Created by Shohieb on 5/13/2017.
  */
 
-public class ContactCommands {
+public class ContactControllers {
 
 
     Realm realm;
-    ContactCommands init(){
+    public ContactControllers init(){
         realm = Realm.getDefaultInstance();
         return this;
     }
