@@ -8,12 +8,78 @@
     android:layout_margin="@dimen/cardview_default_radius"
     tools:context="com.shohiebsense.myapplication.controllers.MainActivity">
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edittext_tinggiBadan"
+        tools:layout_editor_absoluteX="8dp">
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_contacts"
-        android:layout_width="364dp"
-        android:layout_height="491dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:clipToPadding="false">
+
     </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edittext_tinggiBadan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <RadioGroup
+        android:id="@+id/genderRadioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_tinggiBadan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp">
+        <RadioButton android:id="@+id/radio_pirates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="laki2"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton android:id="@+id/radio_ninjas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="perempuan"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonHitung"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:text="hitung"/>
+
+
+    <EditText
+        android:id="@+id/edittext_jawaban"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHitung"
+        tools:layout_editor_absoluteX="0dp" />
+
 
 </android.support.constraint.ConstraintLayout>

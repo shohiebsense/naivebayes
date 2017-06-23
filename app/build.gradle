@@ -37,6 +37,7 @@ dependencies {
         transitive = true
     }
     compile 'com.mikepenz:fastadapter-commons:2.5.2@aar'
+    compile group: 'org.apache.commons', name: 'commons-math3', version: '3.0'
 
 
     testCompile 'junit:junit:4.12'

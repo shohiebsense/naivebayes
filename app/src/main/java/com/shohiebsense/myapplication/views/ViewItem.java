@@ -5,6 +5,7 @@ import android.view.View;
 import com.mikepenz.fastadapter.items.AbstractItem;
 import com.shohiebsense.myapplication.R;
 import com.shohiebsense.myapplication.models.Contact;
+import com.shohiebsense.myapplication.models.Human;
 
 import java.util.List;
 
@@ -16,10 +17,10 @@ public class ViewItem<V extends View> extends AbstractItem<ViewItem, ContactItem
 
 
     int type;
-    Contact contact;
+    Human human;
 
-    public ViewItem(Contact contact) {
-        this.contact = contact;
+    public ViewItem(Human human) {
+        this.human = human;
     }
 
     //The unique ID for this type of item
@@ -39,7 +40,7 @@ public class ViewItem<V extends View> extends AbstractItem<ViewItem, ContactItem
     public void bindView(ContactItem viewHolder, List payloads) {
         //call super so the selection is already handled for you
         super.bindView(viewHolder, payloads);
-        viewHolder.bind(contact);
+        viewHolder.bind(human);
     }
 
     @Override

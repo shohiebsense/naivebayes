@@ -7,11 +7,13 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter;
 import com.shohiebsense.myapplication.R;
-import com.shohiebsense.myapplication.controllers.ContactControllers;
 import com.shohiebsense.myapplication.models.Contact;
+import com.shohiebsense.myapplication.models.Human;
 import com.shohiebsense.myapplication.views.ViewItem;
 
 
@@ -24,7 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerview_contacts)
     RecyclerView contactRecyclerView;
+    @BindView(R.id.edittext_jawaban)
+    EditText jawabanEditText;
+
     FastItemAdapter fastItemAdapter = new FastItemAdapter();
+    List<Human> humanList;
 
 
     @Override
@@ -37,11 +43,35 @@ public class MainActivity extends AppCompatActivity {
 
     void init(){
         fastItemAdapter.withSelectable(true);
-        ContactControllers contactControllers = new ContactControllers().init();
-        contactControllers.addContacts();
+        HumanController contactControllers = new HumanController().init();
+        contactControllers.addHumans();
         initRecyclerView();
         contactRecyclerView.setAdapter(fastItemAdapter);
-        createItems(contactControllers.getAllContacts());
+        createItems(contactControllers.getAllHumans());
+
+
+
+        //percobaan laki2
+        double rata2 = HumanController.rata2(contactControllers.hitungLakiTinggi());
+        double PLpendek = HumanController.normalDistribution(contactControllers.hitungLakiTinggi(),173);
+        double PLtinggi = HumanController.normalDistribution(contactControllers.hitungLakiPendek(),173);
+
+        if(PLpendek > PLtinggi)
+        {
+            jawabanEditText.setText("Pendek \n"+ HumanController.getRounded(PLpendek) + " (Plpendek) > (Pltinggi)" +  HumanController.getRounded(PLtinggi));
+        }
+        else{
+            jawabanEditText.setText("Tinggi \n" +  HumanController.getRounded(PLtinggi) + " (PLtinggi) > (Plpendek) "+  HumanController.getRounded(PLpendek));
+        }
+
+
+
+        double anu = HumanController.normalDistribution(null,74);
+
+        //rata2 perempuan tinggi
+
+        Log.e("shohiebsense  ",anu+ "");
+
     }
 
     public void initRecyclerView(){
@@ -52,13 +82,18 @@ public class MainActivity extends AppCompatActivity {
         contactRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
-    public void createItems(List<Contact> contactList) {
-        for (int i = 0; i < contactList.size(); i++) {
-            Contact contact = contactList.get(i);
-            ViewItem viewItem = new ViewItem(contact);
+    public void createItems(List<Human> humanList) {
+        this.humanList = humanList;
+        for (int i = 0; i < humanList.size(); i++) {
+            Human human = humanList.get(i);
+            ViewItem viewItem = new ViewItem(human);
             Log.e("shohiebsense for ","anu");
             fastItemAdapter.add(viewItem);
         }
         fastItemAdapter.notifyAdapterDataSetChanged();
+    }
+
+    public void onRadioButtonClicked(View view) {
+
     }
 }

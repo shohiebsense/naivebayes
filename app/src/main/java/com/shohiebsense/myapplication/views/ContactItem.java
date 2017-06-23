@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.shohiebsense.myapplication.R;
 import com.shohiebsense.myapplication.models.Contact;
+import com.shohiebsense.myapplication.models.Human;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,10 +37,10 @@ public class ContactItem extends RecyclerView.ViewHolder {
     }
 
 
-    void bind(Contact contact){
-        nameTextView.setText(contact.getName());
-        emailTextView.setText(contact.getEmail());
-        phoneTextView.setText(contact.getPhone());
+    void bind(Human human){
+        nameTextView.setText(human.getName());
+        emailTextView.setText(human.getHeight()+"");
+        phoneTextView.setText(human.getGender());
     }
 
 }
