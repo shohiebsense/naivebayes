@@ -1,2 +1,2 @@
-# combine-fastaadapter-realm-butterknife
-Combine Example, like that title.
+# naivebayes
+simple app menentukkan tinggi seseorang
